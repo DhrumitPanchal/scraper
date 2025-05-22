@@ -8,7 +8,6 @@ const getProductLinks = async (url) => {
   const startUrl = url;
   const browser = await puppeteer.launch({
     headless: true,
-    executablePath: "/usr/bin/google-chrome",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
@@ -71,11 +70,7 @@ export const Testing2 = async (req, res, url) => {
     const productIds = (await getProductLinks(url)).slice(0, 10);
     console.log("📦 Product list ready. Starting to scrape product details...");
 
-    const browser = await puppeteer.launch({
-      headless: true,
-      executablePath: "/usr/bin/google-chrome",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
     const allProductDetails = [];
