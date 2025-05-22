@@ -8,6 +8,7 @@ const getProductIds = async (url) => {
 
   const browser = await puppeteer.launch({
     headless: false,
+    executablePath: "/usr/bin/google-chrome",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
@@ -56,6 +57,7 @@ export const Testing = async (req, res, url) => {
 
     const browser = await puppeteer.launch({
       headless: false, // turn off headless
+      executablePath: "/usr/bin/google-chrome",
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     // set headless: true if you don’t want UI

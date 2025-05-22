@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: puppeteer-scraper
+    env: node
+    buildCommand: ./install-chrome.sh && npm install
+    startCommand: node index.js
