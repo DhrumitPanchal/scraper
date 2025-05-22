@@ -9,7 +9,7 @@ const getProductLinks = async (url) => {
   const browser = await puppeteer.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    timeout: 60000, // 60 seconds
+    timeout: 0, // 60 seconds
   });
 
   const page = await browser.newPage();
@@ -73,7 +73,7 @@ export const Testing2 = async (req, res, url) => {
 
     const browser = await puppeteer.launch({
       headless: true,
-      timeout: 60000, // 60 seconds
+      timeout: 0, // 60 seconds
     });
     const page = await browser.newPage();
 

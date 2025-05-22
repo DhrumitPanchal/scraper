@@ -9,7 +9,7 @@ const getProductIds = async (url) => {
   const browser = await puppeteer.launch({
     headless: false,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    timeout: 60000, // 60 seconds
+    timeout: 0, // 60 seconds
   });
 
   const page = await browser.newPage();
@@ -18,7 +18,7 @@ const getProductIds = async (url) => {
 
   while (true) {
     await page.goto(currentUrl, {
-      waitUntil: "domcontentloaded",
+      waitUntil: "networkidle2",
       timeout: 600000,
     });
 
@@ -58,7 +58,7 @@ export const Testing = async (req, res, url) => {
     const browser = await puppeteer.launch({
       headless: false, // turn off headless
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
-      timeout: 60000, // 60 seconds
+      timeout: 0, // 60 seconds
     });
     // set headless: true if you don’t want UI
     const page = await browser.newPage();
@@ -83,7 +83,7 @@ export const Testing = async (req, res, url) => {
       console.log(`Opening: ${productId} and product number: ${productNumber}`);
 
       await page.goto(detailUrl, {
-        waitUntil: "domcontentloaded",
+        waitUntil: "networkidle2",
         timeout: 600000,
       });
 
