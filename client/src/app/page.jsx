@@ -33,13 +33,13 @@ function page() {
         return;
       }
       // setLoading(true);
-      const req = await axios.post("https://scraper-lacl.onrender.com/api/", {
+      const req = await axios.post("https://scraper-ugi1.onrender.com/api/", {
         url: data.url,
         website: data.website,
       });
 
       toast.success("Data Scraped Successfully");
-      const fileUrl = "https://scraper-lacl.onrender.com/public/products.csv";
+      const fileUrl = "https://scraper-ugi1.onrender.com/public/products.csv";
       downloadFile(fileUrl);
       setLoading(false);
       setData({ url: "", website: "" });
