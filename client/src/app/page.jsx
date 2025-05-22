@@ -1,6 +1,6 @@
 "use client";
 
-import Spinner from "@/components/spinner";
+import Spinner from "../components/Spinner";
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "sonner";
