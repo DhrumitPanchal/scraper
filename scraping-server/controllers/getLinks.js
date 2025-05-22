@@ -22,6 +22,8 @@ export async function getLinks(req, res) {
     }
   } catch (error) {
     console.error("Error fetching links:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", details: error.message });
   }
 }

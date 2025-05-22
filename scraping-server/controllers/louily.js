@@ -171,6 +171,7 @@ export const Testing2 = async (req, res, url) => {
           `❌ Error with product ${i + 1}: ${product.pageLink}`,
           innerError
         );
+        
       }
     }
 
@@ -209,6 +210,8 @@ export const Testing2 = async (req, res, url) => {
     });
   } catch (error) {
     console.error("❌ Error in test1 controller:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res
+      .status(500)
+      .json({ error: "Internal Server Error", details: error.message });
   }
 };
