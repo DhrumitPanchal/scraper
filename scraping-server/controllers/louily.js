@@ -13,6 +13,8 @@ const getProductLinks = async (url) => {
   });
 
   const page = await browser.newPage();
+  page.setDefaultNavigationTimeout(0);
+
   const allProductLinks = new Set();
 
   try {
@@ -76,6 +78,7 @@ export const Testing2 = async (req, res, url) => {
       timeout: 0, // 60 seconds
     });
     const page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
 
     const allProductDetails = [];
 

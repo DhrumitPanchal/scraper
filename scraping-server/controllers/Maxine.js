@@ -13,6 +13,7 @@ const getProductIds = async (url) => {
   });
 
   const page = await browser.newPage();
+  page.setDefaultNavigationTimeout(0);
 
   let currentUrl = url;
 
@@ -62,6 +63,7 @@ export const Testing = async (req, res, url) => {
     });
     // set headless: true if you don’t want UI
     const page = await browser.newPage();
+    page.setDefaultNavigationTimeout(0);
 
     const productIds = (await getProductIds(url)).slice(0, 5);
     const response = await fetch(
